@@ -11,4 +11,4 @@ def processar_saque(driver):
     logging.info(f"Valor total disponível para saque: {valor_total} BTC")
     driver.find_element(By.XPATH, '//*[@id="btnwithdraw1"]').click()
     logging.info("Botão 'CONFIRM' clicado!")
-    time.sleep(5)
+    time.sleep(3)

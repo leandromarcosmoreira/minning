@@ -19,15 +19,15 @@ logging.basicConfig(
 def ler_carteiras_do_arquivo(caminho_arquivo):
     """
     Lê as carteiras de Bitcoin de um arquivo de texto.
-    Retorna uma lista de carteiras.
+    Retorna uma lista de carteiras e o número total de linhas.
     """
     try:
         with open(caminho_arquivo, "r") as arquivo:
             carteiras = [linha.strip() for linha in arquivo if linha.strip()]
-        return carteiras
+        return carteiras, len(carteiras)
     except Exception as e:
         logging.error(f"Erro ao ler o arquivo de carteiras: {e}")
-        return []
+        return [], 0
 
 def main():
     """
@@ -35,7 +35,7 @@ def main():
     """
 
     caminho_arquivo_carteiras = "carteiras.txt"
-    btc_addresses = ler_carteiras_do_arquivo(caminho_arquivo_carteiras)
+    btc_addresses, total_carteiras = ler_carteiras_do_arquivo(caminho_arquivo_carteiras)
 
     if not btc_addresses:
         logging.error("Nenhuma carteira foi carregada. Verifique o arquivo 'carteiras.txt'.")
@@ -49,7 +49,11 @@ def main():
     else:
         logging.warning("Não foi possível obter a cotação do Bitcoin. Exibindo apenas saldos em BTC.")
 
-    for btc_address in btc_addresses:
+    for indice, btc_address in enumerate(btc_addresses, start=1):
+        msg=f"Processando carteira {indice}/{total_carteiras}: {btc_address}"
+        logging.info(len(msg) * "-")
+        logging.info(msg)
+        logging.info(len(msg) * "-")
         driver = configurar_navegador()
         try:
             iniciar_mineracao(driver, btc_address)

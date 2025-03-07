@@ -24,21 +24,21 @@ def verificar_e_contratar_plano(driver, saldo_btc):
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
             logging.info("Plano básico contratado com sucesso!")
-            time.sleep(5)
+            time.sleep(3)
 
         elif btc_min == 0.00000200 and saldo_btc >= 0.009:
             logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00000400, BTC/Day = 0.00576")
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
             logging.info("Plano intermediário contratado com sucesso!")
-            time.sleep(5)
+            time.sleep(3)
 
         elif btc_min == 0.00000400 and saldo_btc >= 0.02:
             logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00001200, BTC/Day = 0.01728")
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
             logging.info("Plano avançado contratado com sucesso!")
-            time.sleep(5)
+            time.sleep(3)
 
         elif btc_min == 0.00001200 and saldo_btc >= 0.09:
             logging.info("Adquirido o maior plano disponível!")
@@ -51,7 +51,7 @@ def verificar_e_contratar_plano(driver, saldo_btc):
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
             logging.info("Plano premium contratado com sucesso!")
-            time.sleep(5)
+            time.sleep(3)
 
     except Exception as e:
         logging.error(f"Erro ao verificar/contratar plano: {e}")
