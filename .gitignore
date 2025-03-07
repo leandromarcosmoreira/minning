@@ -1,0 +1,24 @@
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de texto
+*.txt
+
+# Ignorar diretórios __pycache__ em qualquer nível
+**/__pycache__/
+
+# Ignorar o ambiente virtual
+.venv/
+
+# Ignorar arquivos de configuração do VS Code
+.vscode/
+
+# Ignorar arquivos de configuração do PyCharm
+.idea/
+
+# Ignorar arquivos de cache do Python
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+__pycache__
