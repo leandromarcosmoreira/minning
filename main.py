@@ -33,7 +33,7 @@ def main():
     """
     Função principal que executa o script.
     """
-    # Lê as carteiras do arquivo
+
     caminho_arquivo_carteiras = "carteiras.txt"
     btc_addresses = ler_carteiras_do_arquivo(caminho_arquivo_carteiras)
 
@@ -58,8 +58,8 @@ def main():
 
             verificar_e_contratar_plano(driver, saldo_btc)
             
-            # if saldo_btc >= 0.005:
-            #     processar_saque(driver)
+            if saldo_btc >= 0.1:
+                processar_saque(driver)
         
         except Exception as e:
             logging.error(f"Erro com o carteira {btc_address}: {e}")

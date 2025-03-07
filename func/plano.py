@@ -23,28 +23,34 @@ def verificar_e_contratar_plano(driver, saldo_btc):
             logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00000200, BTC/Day = 0.00288")
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
-            logging.info("Novo plano contratado com sucesso!")
+            logging.info("Plano básico contratado com sucesso!")
             time.sleep(5)
 
         elif btc_min == 0.00000200 and saldo_btc >= 0.009:
             logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00000400, BTC/Day = 0.00576")
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
-            logging.info("Novo plano contratado com sucesso!")
+            logging.info("Plano intermediário contratado com sucesso!")
             time.sleep(5)
 
         elif btc_min == 0.00000400 and saldo_btc >= 0.02:
             logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00001200, BTC/Day = 0.01728")
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
-            logging.info("Novo plano contratado com sucesso!")
+            logging.info("Plano avançado contratado com sucesso!")
             time.sleep(5)
 
         elif btc_min == 0.00001200 and saldo_btc >= 0.09:
-            logging.info("Condições atendidas para contratar o próximo plano: BTC/Min = 0.00004800, BTC/Day = 0.06912")
+            logging.info("Adquirido o maior plano disponível!")
+            
+            campo_promo = driver.find_element(By.XPATH, '//*[@id="promo_code_val4"]')
+            campo_promo.clear()
+            campo_promo.send_keys("FM30")
+            logging.info("Código promocional 'FM30' aplicado com sucesso.")
+            
             botao_contratar = driver.find_element(By.XPATH, '//*[@id="pricing_upgrade"]/div/div/div/div/div/div/div/div/u/div[2]/a')
             botao_contratar.click()
-            logging.info("Novo plano contratado com sucesso!")
+            logging.info("Plano premium contratado com sucesso!")
             time.sleep(5)
 
     except Exception as e:

@@ -5,7 +5,7 @@ def formatar_sumario(sumario, cotacao_btc_brl):
     """
     Formata e exibe o sumário dos saldos em formato de tabela, incluindo o total.
     """
-    if not sumario:  # Verifica se a lista sumario está vazia
+    if not sumario:
         logging.warning("Nenhum saldo foi processado. O sumário está vazio.")
         return
 
