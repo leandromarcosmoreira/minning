@@ -13,7 +13,7 @@ def formatar_sumario(sumario, cotacao_btc_brl):
     tamanho_saldo_btc = 15
     tamanho_saldo_brl = 20
 
-    saque_minimo_btc = 0.005
+    saque_minimo_btc = 0.01
     saque_minimo_brl = saque_minimo_btc * cotacao_btc_brl if cotacao_btc_brl else 0.0
     saque_msg = f"Saque mínimo por carteira: {saque_minimo_btc:.8f} BTC | R$ {formatar_brl(saque_minimo_brl)}"
     separador = "-" * (tamanho_endereco + tamanho_saldo_btc + tamanho_saldo_brl + 9)
